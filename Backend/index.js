@@ -12,11 +12,11 @@ app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
 app.use(authenticationMiddleware);
 app.get('/', (req, res) => {
-    return res.json({ status: `Server is up and running.....` })
+    return res.json({ status: `Server is running.....` })
 })
 
 
 app.use('/user', userRouter);
 app.use(urlRouter);
-app.listen(PORT, () => console.log(`Server is connected on a port ${PORT}`)
+app.listen(PORT, () => console.log(`Server is connected on port${PORT}`)
 )
