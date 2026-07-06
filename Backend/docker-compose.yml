@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    container_name: url_shortener_postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5433:5432
+    volumes:
+      - db_data_v16:/var/lib/postgresql/data
+    networks:
+      - default
+      - pgadmin_net
+
+volumes:
+  db_data_v16:
+
+networks:
+  pgadmin_net:
+    name: backend_default
+    external: true
